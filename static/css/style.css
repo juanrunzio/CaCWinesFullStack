@@ -1,0 +1,868 @@
+:root {
+  /* sirve para crear var(variables)*/
+  --font-primary: "Alegreya Sans", sans-serif;
+  --font-secondary: "Bobby Jones Soft Regular";
+  /*se usa asi, ejemplo:
+  section_en_uso {
+  font-family: var(--font-primary);
+  }
+
+  */
+  --colorPrimario: blueviolet;
+  --colorPrimarioHover: rgb(101, 33, 165);
+  --colorNegro: rgb(30, 30, 30);
+  --colorLetrasBlanco: #ffffff;
+  --colorLetrasGris: #949293;
+  --coloOpcionalNegro: rgba(50, 50, 50, 1);
+  /*
+  Ejemplo de uso: 
+  "background-color-o-el-contenedor-que-sea: var(--colorPrimario);"
+  */
+}
+/* MUY IMPORTANTE --> USAR los nombres de las clases y que sean UNICOS 
+Ejemplo de uso:
+
+.signUp span{
+  font-weight: 600;
+}
+.mainHero{
+  display: flex;
+  justify-content:start;
+  position: sticky;
+}
+
+*/
+
+/*Maquetado general*/
+html {
+  scroll-behavior: smooth;
+}
+* {
+  margin: 0;
+  padding: 0;
+}
+
+/*Maquetado Juan*/
+
+/* Estilos para el hero y el encabezado */
+.hero {
+  /* background-color: #f4f4f4;  Color de fondo del hero */
+  background: linear-gradient(
+      180deg,
+      rgba(253, 225, 221, 0.6) 0%,
+      rgba(145, 119, 87, 0.6) 37%,
+      rgba(88, 52, 0, 0.6) 100%
+    ),
+    url(../img/road-428039_1280.jpg);
+  /* background: url("/img/road-428039_1280.jpg"); */
+  background-size: cover; /* Cubre todo el contenedor con la imagen */
+  padding: 300px 0;
+  display: flex;
+  justify-content: space-around;
+  background-position: center; /* Centra la imagen */
+  position: relative;
+  z-index: 1;
+  background-attachment: fixed;
+}
+
+/* Estilos para el navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: unset;
+}
+
+.nav_item {
+  text-decoration: none;
+  color: var(--colorLetrasBlanco);
+  margin: 0 10px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+.nav-buttons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: unset;
+}
+
+.nav_item:hover {
+  color: var(--colorPrimario);
+}
+#menu {
+  display: none; /* Oculta el menú hamburguesa por defecto */
+  color: var(--colorNegro);
+}
+/* Estilos para el logo */
+.logo {
+  text-decoration: none;
+  color: #333;
+  display: flex;
+  justify-content: center;
+  transition: top 0.5s ease, left 0.5s ease;
+}
+
+.logo h1 {
+  margin: 0;
+  justify-content: center;
+  margin-bottom: 15px;
+  animation-name: izquierda;
+  animation-duration: 2s;
+}
+@keyframes izquierda {
+  0% {
+    transform: translatey(-520px);
+  }
+  50% {
+    color: slategrey;
+  }
+  100% {
+    transform: translatey(0);
+    opacity: 1;
+  }
+}
+
+.link-bottom {
+  margin-right: 0; /* Elimina el margen derecho para el último botón */
+}
+.reviews-section {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.reviews-section form {
+  margin-bottom: 30px;
+}
+
+.reviews-section label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.reviews-section input,
+.reviews-section textarea,
+.reviews-section select {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 15px;
+}
+
+.reviews-section button {
+  background-color: var(--colorPrimario);
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+}
+
+.reviews-section button:hover {
+  background-color: var(--colorPrimarioHover);
+}
+
+.existing-reviews .review {
+  border-bottom: 1px solid #ccc;
+  padding: 15px 0;
+}
+.editarLaResenia {
+  font: var(--font-secondary);
+}
+/*-----------------------------------------------------------------------*/
+/*Maquetado Carlos*/
+
+.historia {
+  display: flex;
+  align-items: center;
+}
+.sobreNosotros {
+  background-image: url("../img/pexels-photo-2664185.jpeg");
+  background-size: cover;
+  background-position: center;
+  padding: 10rem;
+  color: #f6f5f5;
+}
+
+.nosotros {
+  padding-bottom: 3rem;
+  font-size: 4rem;
+}
+
+.weus {
+  text-align: center;
+  animation-name: izquierda;
+  animation-duration: 3s;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.texto2 {
+  font-size: 1.2rem;
+  font-style: "Alegreya Sans", sans-serif;
+  text-align: center;
+  animation-name: izquierda;
+  animation-duration: 3s;
+  gap: 50px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+.parrafos {
+  display: flex;
+  font-style: "Alegreya Sans", sans-serif;
+  overflow-y: auto;
+  text-align: center;
+  align-items: center;
+  animation-name: izquierda;
+  animation-duration: 4s;
+}
+.texto {
+  margin-top: 0px;
+  width: 90%;
+  justify-content: end;
+  font-size: 1.2rem;
+}
+.tituloYfrase {
+  margin-top: 1.5rem;
+}
+
+.quote {
+  font-family: var(--font-secondary);
+  text-align: center;
+  animation-name: izquierda;
+  animation-duration: 4s;
+  gap: 50px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  padding-top: 2rem;
+  padding-bottom: 1.1rem;
+}
+.historiaTexto {
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  width: 70%;
+}
+
+.tituloDesarrollo {
+  font-size: 2rem;
+  margin: auto;
+  justify-content: end;
+  color: #000000;
+  font-family: var(--font-primary);
+  animation-name: izquierda;
+  animation-duration: 4s;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+container {
+  max-width: 1400px;
+  margin: auto;
+  padding: 20px;
+  background-color: rgb(2, 2, 2);
+  /* Fondo semi-transparente para mejorar la legibilidad */
+}
+
+.video-background {
+  position: static;
+
+  left: 90%;
+  width: 30%;
+  height: 550px;
+  object-fit: cover;
+  z-index: -1;
+  animation-name: izquierda;
+  animation-duration: 4s;
+}
+
+.Desarrollo {
+  margin-bottom: 50px;
+}
+
+@media only screen and (max-width: 768px) {
+  .texto {
+    text-align: center;
+    align-items: center;
+    width: 100%;
+    /* Cambiado a 100% para ocupar todo el ancho disponible */
+    max-width: 800px;
+    /* Un valor máximo para evitar que el contenedor se vuelva demasiado ancho */
+    height: 500px;
+    overflow-y: auto;
+  }
+
+  .weus {
+    padding-top: 2rem;
+  }
+
+  .historia {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .histo {
+    gap: 50px;
+  }
+
+  .video-background {
+    width: 80%;
+  }
+
+  .parrafos {
+    display: flex;
+    flex-direction: column;
+
+    object-fit: cover;
+  }
+  .Desarrollo {
+    margin-bottom: 25px;
+  }
+  .texto2 {
+    margin: 0;
+    width: 100%;
+  }
+  .sobreNosotros {
+    padding-top: 4rem;
+    padding-bottom: 3rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+  .nosotros {
+    padding-bottom: 0.5rem;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .weus {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    padding: 0 5px;
+    overflow-y: auto;
+    font-size: 0.5rem;
+  }
+  .tituloYfrase {
+    margin: 1.3rem;
+  }
+  .nosotros {
+    font-size: 2.2rem;
+  }
+  .sobreNosotros {
+    margin: 0;
+  }
+  .sobreNosotros h2 {
+    margin: 0;
+  }
+  .texto2 {
+    font-size: 1rem;
+    margin-top: 50px;
+    width: 80%;
+  }
+
+  .parrafos {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 100%;
+  }
+
+  .video-background {
+    width: 90%;
+    height: 40%;
+  }
+
+  .texto {
+    display: flex;
+    text-align: center;
+    align-items: center;
+    width: 100%;
+    overflow-y: auto;
+    font-size: 1rem;
+  }
+  .Desarrollo {
+    margin-bottom: 0px;
+    margin-top: 10px;
+  }
+  .tituloDesarrollo {
+    padding-top: 2rem;
+  }
+  .logoPagina {
+    width: 55% !important;
+  }
+}
+
+/*-----------------------------------------------------------------------*/
+/*Maquetado de Facundo 15-04*/
+/* Estilos para el título de tipos de vino */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-primary);
+  margin: 0;
+}
+
+h1 {
+  font-size: 3.5em;
+}
+/* ".contenedorTextoHero > h2{" */
+.container h2 {
+  font-size: 2.7em;
+  font-family: var(--font-primary);
+}
+
+.vinos h3 {
+  font-size: 2em;
+  font-family: var(--font-secondary);
+}
+
+.vinos p {
+  font-size: 1.25em;
+  margin-top: 100px;
+  font-family: var(--font-primary);
+}
+
+.vinos button {
+  font-size: 1.25em;
+  font-weight: bold;
+  font-family: var(--font-primary);
+  padding: 10px 30px;
+  border-radius: 5px;
+  border: 2px solid rgba(0, 0, 0, 0.3);
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+  color: white;
+  background-color: blueviolet;
+}
+
+button:hover {
+  background-color: rgb(101, 33, 165);
+}
+
+.container {
+  max-width: 1400px;
+  margin: auto;
+}
+
+.color-acento {
+  color: blueviolet;
+}
+
+#nuestrosVinos {
+  background-color: rgb(30, 30, 30);
+  color: var(--colorLetrasBlanco);
+  text-align: center;
+}
+
+#nuestrosVinos .container {
+  padding: 150px 12px;
+}
+
+#nuestrosVinos h2 {
+  margin-top: -60px;
+  font-size: 3.2em;
+}
+
+#nuestrosVinos p {
+  display: none;
+}
+
+#nuestrosVinos .carta {
+  background-position: center center;
+  background-size: cover;
+  padding: 50px 20px;
+  margin: 30px;
+  border-radius: 15px;
+}
+
+.carta:first-child {
+  background-image: linear-gradient(
+      0deg,
+      rgba(0, 0, 0, 0.5),
+      rgba(0, 0, 0, 0.5)
+    ),
+    url("../img/CuadroTest.webp");
+}
+
+.carta:nth-child(2) {
+  background-image: linear-gradient(
+      0deg,
+      rgba(0, 0, 0, 0.5),
+      rgba(0, 0, 0, 0.5)
+    ),
+    url("../img/CuadroTest.webp");
+}
+
+.carta:nth-child(3) {
+  background-image: linear-gradient(
+      0deg,
+      rgba(0, 0, 0, 0.5),
+      rgba(0, 0, 0, 0.5)
+    ),
+    url("../img/CuadroTest.webp");
+}
+
+.carta:nth-child(4) {
+  background-image: linear-gradient(
+      0deg,
+      rgba(0, 0, 0, 0.5),
+      rgba(0, 0, 0, 0.5)
+    ),
+    url("../img/CuadroTest.webp");
+}
+/*---------- Diseño del Formulario de Contacto ----------*/
+/* Estilos para la sección del formulario */
+.seccion-formulario {
+  margin: 20px;
+  padding: 20px;
+  border: 1px solid var(--colorLetrasGris);
+  border-radius: 5px;
+  background-color: var(--coloOpcionalNegro);
+  max-width: 100%;
+}
+
+/* Estilo H2 Texto y demas */
+.seccion-formulario h2 {
+  text-align: center;
+  font-family: var(--font-primary);
+  margin-bottom: 30px;
+}
+
+/* Etiquetas de texto */
+.seccion-formulario label {
+  font-family: var(--font-primary);
+  display: inline-block;
+  width: 100px;
+  margin-bottom: 5px;
+  margin-right: 20px;
+  font-weight: bold;
+  color: var(--colorLetrasBlanco);
+  white-space: nowrap;
+}
+
+/* H2 Contacto y Texto */
+
+.seccion-formulario h2 {
+  text-align: center;
+  font-family: var(--font-secondary);
+  color: var(--colorLetrasBlanco);
+}
+
+/* Entradas de texto y demas */
+.seccion-formulario input[type="text"],
+.seccion-formulario input[type="email"],
+.seccion-formulario input[type="tel"],
+.seccion-formulario select,
+.seccion-formulario textarea {
+  font-family: var(--font-primary);
+  width: calc(100% - 0px); /* Ajuste de ancho para inputs */
+  padding: 8px;
+  margin-bottom: 10px;
+  background-color: var(--colorLetrasGris);
+  border: 1px solid var(--colorLetrasGris);
+  border-radius: 5px;
+  resize: none;
+  box-shadow: 2px 2px 2px rgba(253, 225, 221, 0.6);
+}
+
+/* Estilos para nombre y apellido */
+.nombre-apellido {
+  display: flex;
+  justify-content: space-between;
+}
+
+.nombre-apellido div {
+  width: calc(50% - 10px); /* Ajuste de ancho para divs */
+}
+
+.email-telefono {
+  display: flex;
+  justify-content: space-between;
+}
+
+.email-telefono div {
+  width: calc(50% - 10px); /* Ajuste de ancho para divs */
+}
+
+.nombre-apellido input[type="text"],
+.email-telefono input[type="email"],
+.email-telefono input[type="tel"] {
+  width: 100%; /* Ancho completo dentro de cada div */
+}
+
+/* Checkbox y Radio */
+.seccion-formulario input[type="radio"],
+.seccion-formulario input[type="checkbox"] {
+  margin-right: 5px;
+  background-color: var(--colorLetrasGris);
+}
+
+/* Afecta a todos los DIV del form */
+.seccion-formulario div {
+  margin-bottom: 10px;
+}
+
+/* Boton de enviar */
+.seccion-formulario input[type="submit"] {
+  background-color: var(--colorPrimario);
+  color: var(--colorLetrasBlanco);
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.seccion-formulario input[type="submit"]:hover {
+  background-color: var(--colorPrimarioHover);
+}
+
+/*-------------------- CSS DE FOOTER --------------------*/
+
+footer {
+  background-color: var(--coloOpcionalNegro);
+}
+.footerContenedor {
+  width: 100%;
+  padding: 70px 30px 20px;
+}
+.IconosRedes {
+  display: flex;
+  justify-content: center;
+}
+.IconosRedes a {
+  text-decoration: none;
+  padding: 10px;
+  background-color: var(--colorLetrasBlanco);
+  margin: 10px;
+  border-radius: 50%;
+}
+.IconosRedes a i {
+  font-size: 2em;
+  color: var(--colorNegro);
+  opacity: 0, 9;
+}
+/* Iconos de redes sociales */
+.IconosRedes a:hover {
+  background-color: var(--colorNegro);
+  transition: 0.5s;
+}
+.IconosRedes a:hover i {
+  color: var(--colorLetrasBlanco);
+  transition: 0.5s;
+}
+.footerNav {
+  margin: 30px 0;
+}
+
+/*
+ul {
+  list-style: none;
+}
+
+li {
+  font-size: 1.25em;
+}
+*/
+
+.footerNav ul {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+}
+
+.invisible-space {
+  margin-right: 20px; /* Ajusta el margen derecho segun tu necesidad */
+}
+
+.footerNav ul li a {
+  color: var(--colorLetrasBlanco);
+  margin: 20px;
+  font-family: var(--font-primary);
+  text-transform: uppercase;
+  text-decoration: none;
+  font-size: 1.3em;
+  opacity: 0.7;
+  transition: 0.5s;
+}
+.footerNav ul li a:hover {
+  opacity: 1;
+}
+.footerBottom {
+  background-color: var(--colorNegro);
+  padding: 20px;
+  text-align: center;
+}
+.footerBottom p {
+  color: var(--colorLetrasBlanco);
+}
+
+.legal {
+  opacity: 0.7;
+  font-family: var(--font-primary);
+  text-transform: uppercase;
+  color: var(--colorLetrasBlanco);
+  text-align: center;
+  letter-spacing: 1px;
+  font-weight: 400;
+  margin: 30px 5px;
+}
+
+@media (max-width: 850px) {
+  .footerNav ul {
+    flex-direction: column;
+    text-align: center;
+  }
+  .footerNav ul li {
+    text-transform: uppercase;
+    justify-content: center;
+    text-align: center;
+    margin: 10px;
+  }
+  .IconosRedes a {
+    padding: 8px;
+    margin: 4px;
+  }
+}
+
+/* ---------------------------------------------------------- */
+/* Estilos para pantallas pequeñas --> Juan */
+@media screen and (max-width: 850px) {
+  .navbar {
+    display: none; /* Oculta los botones de navegación en pantallas pequeñas */
+  }
+  .nav-buttons {
+    display: none; /* Oculta los botones de navegación en pantallas pequeñas */
+  }
+
+  #menu {
+    display: block; /* Muestra el menú hamburguesa en pantallas pequeñas */
+    cursor: pointer;
+    position: absolute;
+    top: 9%;
+    right: 50px;
+  }
+  .menu-open .hero {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .menu-open .navbar {
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+  }
+  .menu-open .nav-buttons {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .menu-open #menu {
+    display: block; /* Muestra el logo en el menú hamburguesa abierto */
+    position: absolute; /* Posición absoluta para el logo dentro del menú */
+    top: 9%; /* Centra verticalmente el logo */
+    right: 50px; /* Ajusta la posición horizontal para mantener el logo a la izquierda */
+  }
+
+  /* Mostrar el logo en el menú hamburguesa abierto */
+  .menu-open .logo {
+    display: block; /* Muestra el logo en el menú hamburguesa abierto */
+    position: absolute; /* Posición absoluta para el logo dentro del menú */
+    top: 5%; /* Centra verticalmente el logo */
+    left: 20px; /* Ajusta la posición horizontal para mantener el logo a la izquierda */
+    transition: top 2s ease, left 2s ease;
+  }
+  .logoPagina {
+    width: 85%;
+  }
+}
+
+@media (min-width: 850px) {
+  #nuestrosVinos .vinos {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  #nuestrosVinos p {
+    display: block;
+    margin-bottom: 30px;
+  }
+
+  #nuestrosVinos h2 {
+    font-size: 4em;
+  }
+
+  #nuestrosVinos h3 {
+    margin-top: 10px;
+  }
+
+  #nuestrosVinos .carta {
+    position: relative;
+    justify-content: center;
+    padding: 60px;
+    max-width: 30%;
+    background-size: 100% 150px;
+    background-repeat: no-repeat;
+    background-position-y: 0;
+    background-color: rgba(50, 50, 50, 1);
+    box-sizing: border-box;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+  }
+
+  .vinos button {
+    bottom: 10px;
+    font-size: 1.25em;
+
+    font-family: var(--font-primary);
+    padding: 10px 30px;
+    border-radius: 5px;
+    border: 2px solid rgba(0, 0, 0, 0.3);
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+    color: white;
+    background-color: blueviolet;
+  }
+
+  #nuestrosVinos .carta button {
+    position: absolute;
+    bottom: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  button:hover {
+    background-color: rgb(101, 33, 165);
+  }
+
+  .carta:first-child {
+    background-image: linear-gradient(
+        0deg,
+        rgba(0, 0, 0, 0.5),
+        rgba(0, 0, 0, 0.5)
+      ),
+      url("../img/VinoTest.avif");
+  }
+
+  .carta:nth-child(2) {
+    background-image: linear-gradient(
+        0deg,
+        rgba(0, 0, 0, 0.5),
+        rgba(0, 0, 0, 0.5)
+      ),
+      url("../img/VinoTest.avif");
+  }
+
+  .carta:nth-child(3) {
+    background-image: linear-gradient(
+        0deg,
+        rgba(0, 0, 0, 0.5),
+        rgba(0, 0, 0, 0.5)
+      ),
+      url("../img/VinoTest.avif");
+  }
+
+  .carta:nth-child(4) {
+    background-image: linear-gradient(
+        0deg,
+        rgba(0, 0, 0, 0.5),
+        rgba(0, 0, 0, 0.5)
+      ),
+      url("../img/VinoTest.avif");
+  }
+}

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css')}}" />
+    <title>Form</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Alegreya+Sans:ital,wght@0,100;0,300;0,400;0,500;0,700;0,800;0,900;1,100;1,300;1,400;1,500;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://db.onlinewebfonts.com/c/56b1d105d2fa63f97d89d9626b476ec8?family=Bobby+Jones+Soft+Regular"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header class="header">
+      <section class="hero">
+        <nav class="navbar">
+          <div class="nav-buttons"></div>
+          <div id="close"></div>
+          <a href="{{ url_for('home') }}" class="nav_item">HOME</a>
+          <a href="{{ url_for('home') }}" class="nav_item">SOBRE NOSOTROS</a>
+          <a href="{{ url_for('home') }}" class="nav_item">HISTORIA</a>
+        </nav>
+        <a href="{{ url_for('home') }}" class="logo">
+          <img src="{{ url_for('static', filename='img/Logopaljuanchi2.png') }}" class="logoPagina" alt="" />
+        </a>
+        <div class="nav-buttons">
+          <div id="close"></div>
+          <a href="{{ url_for('home') }}" class="nav_item">VINOS</a>
+          <a href="{{ url_for('formulario') }}" class="nav_item link-bottom">CONTACTO</a>
+          <a href="#footer" class="nav_item">DOWN</a>
+        </div>
+        <div id="menu" class="fas fa-bars"></div>
+      </section>
+    </header>
+    </nav>
+    
+    <section class="seccion-formulario">
+      <h2>Contacto</h2>
+      <form action="https://formspree.io/f/mvongjoa" method="POST">
+        <div class="nombre-apellido">
+          <div>
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" name="nombreUsuario" />
+          </div>
+          <div>
+            <label for="apellido">Apellido:</label>
+            <input type="text" id="apellido" name="apellidoUsuario" />
+          </div>
+        </div>
+    
+        <div class="email-telefono">
+          <div>
+            <label for="correo">Correo Electrónico:</label>
+            <input type="email" id="correo" name="correoUsuario" />
+          </div>
+          <div>
+            <label for="telefono">Teléfono:</label>
+            <input type="tel" id="telefono" name="telefonoUsuario" />
+          </div>
+        </div>
+    
+        <div>
+          <label for="horarios">Ingrese en qué franja horaria nos comunicaremos:</label>
+          <div>
+            <label for="TM">De 9hs a 12hs</label>
+            <input type="radio" id="TM" name="horarioDeContacto" value="9hs a 12hs" />
+            <label for="TT">De 12hs a 17hs</label>
+            <input type="radio" id="TT" name="horarioDeContacto" value="12hs a 17hs" />
+          </div>
+        </div>
+    
+        <div>
+          <label for="notificaciones">Indique qué tipo de notificaciones quiere recibir:</label>
+          <div>
+            <label for="nuevos-productos">Productos Nuevos</label>
+            <input type="checkbox" id="nuevos-productos" name="notificaciones" value="nuevos productos" />
+            <label for="promos">Promociones</label>
+            <input type="checkbox" id="promos" name="notificaciones" value="promociones" />
+          </div>
+        </div>
+    
+        <div>
+          <label for="paisOrigen">Nacionalidad:</label>
+          <select name="Nacionalidad" id="paisOrigen">
+            <option value="Argentina">Argentina</option>
+            <option value="Uruguay">Uruguay</option>
+            <option value="Chile">Chile</option>
+          </select>
+        </div>
+    
+        <div>
+          <label for="mensaje">Escriba sus comentarios:</label>
+          <textarea name="comentarios" id="mensaje" cols="30" rows="10"></textarea>
+        </div>
+    
+        <input type="submit" value="Enviar" />
+      </form>
+    </section>
+
+
+    <footer class="pie-de-pagina" id="footer">
+      <div class="footerContenedor">
+        <div class="footerNav">
+            <ul>
+              <li><a href="{{ url_for('home') }}">Home</a></li>
+              <li><a href="{{ url_for('home') }}">Sobre Nosotros</a></li>
+              <li><a href="{{ url_for('home') }}">Historia</a></li>
+              <li><a href="{{ url_for('home') }}">Vinos</a></li>
+              <li><a href="{{ url_for('formulario') }}">Contacto</a></li>
+            </ul>
+        </div>
+        <div class="IconosRedes">
+          <a href=""><i class="fa-brands fa-facebook"></i></a>
+          <a href=""><i class="fa-brands fa-instagram"></i></a>
+          <a href=""><i class="fa-brands fa-twitter"></i></a>
+        </div>
+        <div class="legal">
+          <p> " © 2024 CaCWines, todos los derechos reservados. "
+            <span class="invisible-space"></span>
+            <a href=""> Políticas de privacidad </a>
+            <span class="invisible-space"></span>
+            <a href=""> Términos y condiciones </a>
+          </p>
+      </div>
+      </div>
+
+    </footer>
+    <!--linkeo de js-->
+    <script src="app.js"></script>
+  </body>
+</html>
+
+<!--GET: busca algo y lo trae ,POST: desde el navegador envio informacion
+    ,put ,patch ,delete-->

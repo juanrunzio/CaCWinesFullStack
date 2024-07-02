@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css')}}" />
+    <title>CaCWine - Reseñas de Vinos</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Alegreya+Sans:ital,wght@0,100;0,300;0,400;0,500;0,700;0,800;0,900;1,100;1,300;1,400;1,500;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://db.onlinewebfonts.com/c/56b1d105d2fa63f97d89d9626b476ec8?family=Bobby+Jones+Soft+Regular"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header class="header">
+      <section class="hero">
+        <nav class="navbar">
+          <div class="nav-buttons"></div>
+          <div id="close"></div>
+          <a href="{{ url_for('home') }}" class="nav_item">HOME</a>
+          <a href="{{ url_for('home') }}" class="nav_item">SOBRE NOSOTROS</a>
+          <a href="{{ url_for('home') }}" class="nav_item">HISTORIA</a>
+        </nav>
+        <a href="{{ url_for('home') }}" class="logo">
+          <img src="{{ url_for('static', filename='img/Logopaljuanchi2.png') }}" class="logoPagina" alt="" />
+        </a>
+        <div class="nav-buttons">
+          <div id="close"></div>
+          <a href="{{ url_for('home') }}" class="nav_item">VINOS</a>
+          <a href="{{ url_for('formulario') }}" class="nav_item link-bottom">CONTACTO</a>
+          <a href="#footer" class="nav_item">DOWN</a>
+        </div>
+        <div id="menu" class="fas fa-bars"></div>
+      </section>
+    </header>
+    </nav>
+    
+    <main>
+      <section class="reviews-section">
+        <h2>Reseñas de Vinos</h2>
+        <p>Comparte tu opinión sobre nuestros vinos y ayuda a otros amantes del vino a descubrir nuevas experiencias.</p>
+        
+        <form action="{{ url_for('add_review') }}" method="post">
+            <div>
+                <label for="wine_name">Nombre del Vino:</label>
+                <input type="text" id="wine_name" name="wine_name" required>
+            </div>
+            <div>
+                <label for="review_text">Tu Reseña:</label>
+                <textarea id="review_text" name="review_text" required></textarea>
+            </div>
+            <div>
+                <label for="rating">Calificación:</label>
+                <select id="rating" name="rating" required>
+                    <option value="1">1 Estrella</option>
+                    <option value="2">2 Estrellas</option>
+                    <option value="3">3 Estrellas</option>
+                    <option value="4">4 Estrellas</option>
+                    <option value="5">5 Estrellas</option>
+                </select>
+            </div>
+            <button type="submit">Enviar Reseña</button>
+        </form>
+
+        <div class="existing-reviews">
+            <h3>Reseñas Recientes</h3>
+            {% for review in reviews %}
+                <div class="review" data-review-id="{{ review.id }}">
+                    <h4>{{ review.wine_name }}</h4>
+                    <p>{{ review.review_text }}</p>
+                    <p>Calificación: 
+                        {% for i in range(5) %}
+                            {% if i < review.rating %}
+                                <i class="fas fa-star"></i>
+                            {% else %}
+                                <i class="far fa-star"></i>
+                            {% endif %}
+                        {% endfor %}
+                    </p>
+                    <button class="edit-review" data-review-id="{{ review.id }}">Editar</button>
+                    <button class="delete-review" data-review-id="{{ review.id }}">Eliminar</button>
+                </div>
+            {% endfor %}
+        </div>
+    </section>
+    </main>
+
+
+    <footer class="pie-de-pagina" id="footer">
+      <div class="footerContenedor">
+        <div class="footerNav">
+            <ul>
+              <li><a href="{{ url_for('home') }}">Home</a></li>
+              <li><a href="{{ url_for('home') }}">Sobre Nosotros</a></li>
+              <li><a href="{{ url_for('home') }}">Historia</a></li>
+              <li><a href="{{ url_for('home') }}">Vinos</a></li>
+              <li><a href="{{ url_for('formulario') }}">Contacto</a></li>
+            </ul>
+        </div>
+        <div class="IconosRedes">
+          <a href=""><i class="fa-brands fa-facebook"></i></a>
+          <a href=""><i class="fa-brands fa-instagram"></i></a>
+          <a href=""><i class="fa-brands fa-twitter"></i></a>
+        </div>
+        <div class="legal">
+          <p> " © 2024 CaCWines, todos los derechos reservados. "
+            <span class="invisible-space"></span>
+            <a href=""> Políticas de privacidad </a>
+            <span class="invisible-space"></span>
+            <a href=""> Términos y condiciones </a>
+          </p>
+      </div>
+      </div>
+
+    </footer>
+    <!--linkeo de js-->
+    <script>
+      $(document).ready(function() {
+          $('.delete-review').click(function() {
+              var reviewId = $(this).data('review-id');
+              if (confirm('¿Estás seguro de que quieres eliminar esta reseña?')) {
+                  $.ajax({
+                      url: '/delete_review/' + reviewId,
+                      type: 'POST',
+                      success: function(result) {
+                          if (result.success) {
+                              $('[data-review-id="' + reviewId + '"]').remove();
+                          }
+                      }
+                  });
+              }
+          });
+  
+          $('.edit-review').click(function() {
+              var reviewId = $(this).data('review-id');
+              window.location.href = '/edit_review/' + reviewId;
+          });
+      });
+      </script>
+      <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+  </body>
+</html>

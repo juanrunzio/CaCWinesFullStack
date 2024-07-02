@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/style.css')
+    }}"
+    />
+    <!--Aca va el estilo del css, agregarlo mas tarde-->
+    <script src="" crossorigin=""></script>
+    <!--Aca va el font de los iconos-->
+    <title>CaCWine</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Alegreya+Sans:ital,wght@0,100;0,300;0,400;0,500;0,700;0,800;0,900;1,100;1,300;1,400;1,500;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://db.onlinewebfonts.com/c/56b1d105d2fa63f97d89d9626b476ec8?family=Bobby+Jones+Soft+Regular"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header class="header">
+      <section class="hero" id="heroTop">
+        <nav class="navbar">
+          <div class="nav-buttons"></div>
+          <div id="close"></div>
+          <a href="{{ url_for('home') }}" class="nav_item">HOME</a>
+          <a href="#about" class="nav_item">SOBRE NOSOTROS</a>
+          <a href="#history" class="nav_item">HISTORIA</a>
+        </nav>
+        <a href="#" class="logo">
+          <!-- <h1>CaCWine</h1> -->
+          <img
+            src="{{ url_for('static', filename='img/Logopaljuanchi2.png') }}"
+            class="logoPagina"
+            alt=""
+          />
+        </a>
+        <div class="nav-buttons">
+          <div id="close"></div>
+          <a href="#nuestrosVinos" class="nav_item">VINOS</a>
+          <a href="{{ url_for('formulario') }}" class="nav_item link-bottom"
+            >CONTACTO</a
+          >
+          <a href="{{ url_for('reviews') }}" class="nav_item">Reviews</a>
+        </div>
+        <div id="menu" class="fas fa-bars"></div>
+      </section>
+    </header>
+
+    <main>
+      <section class="historia" id="history">
+        <div class="histo">
+          <div class="tituloYfrase">
+            <h2 class="quote">"El vino es la Sangre de la Tierra ARGENTINA"</h2>
+          </div>
+
+          <div class="parrafos">
+            <video autoplay muted loop class="video-background">
+              <source
+                src="{{ url_for('static', filename='img/y2mate.com - Sirviendo vino_1080p.mp4') }}"
+                type="video/mp4"
+              />
+            </video>
+            <div class="historiaTexto">
+              <div class="Desarrollo">
+                <h3 class="tituloDesarrollo">Un poco de Historia</h3>
+              </div>
+              <p class="texto">
+                El vino argentino es la esencia de una historia apasionante y
+                una cultura rica. Desde los primeros viñedos plantados durante
+                la colonización española hasta el florecimiento de una industria
+                de clase mundial, cada sorbo cuenta siglos de legado y pasión.
+                Imagina colonizadores españoles trayendo cepas de uva europeas
+                como Malbec, Cabernet Sauvignon y Bonarda, plantándolas con amor
+                en las tierras argentinas. Hoy, Argentina brilla en el escenario
+                mundial como uno de los principales productores de vino, siendo
+                el Malbec su emblema más brillante. Cada botella cuenta una
+                historia de tradición, innovación y pasión desenfrenada por la
+                excelencia. Es una invitación a un viaje de descubrimiento
+                sensorial y emocional, donde cada copa es una celebración de la
+                vida y de la unión de personas de todo el mundo en torno a una
+                mesa, compartiendo risas, sueños y el sabor incomparable del
+                vino argentino.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="sobreNosotros" id="about">
+        <div class="weus">
+          <h2 class="nosotros">Sobre Nosotros</h2>
+          <p class="texto2">
+            Somos un grupo de amigos con una pasión compartida por el vino.
+            Decidimos unir nuestras habilidades y conocimientos para crear
+            calidad con un enfoque en la artesanía y la innovación. Nuestra
+            historia comenzó hace años, cuando nos conocimos en la universidad y
+            descubrimos nuestra pasión común por el vino. Desde entonces, hemos
+            estado explorando y aprendiendo juntos, perfeccionando nuestras
+            habilidades y desarrollando nuestra propia filosofía de
+            vinificación.En VinumAmici, creemos en la importancia del trabajo en
+            equipo y la colaboración. Cada uno de nosotros aporta algo único al
+            proceso de creación de vinos, desde la selección de uvas hasta la
+            fermentación y el embotellado. Nos esforzamos por mantenernos fieles
+            a nuestros valores de calidad, autenticidad y pasión en todo lo que
+            hacemos.
+          </p>
+        </div>
+      </section>
+
+      <section id="nuestrosVinos">
+        <div class="container">
+          <h2>Nuestros Vinos</h2>
+          <div class="vinos">
+            <div class="carta">
+              <h3>Malbec</h3>
+              <p>
+                El Malbec es un vino tinto con un color oscuro y sabores
+                intensos a ciruelas y moras. Originario de Francia, ha
+                encontrado su mejor expresión en Argentina. Presenta taninos
+                robustos y un final suave, ideal para acompañar carnes rojas y
+                quesos curados.
+              </p>
+              <button>CONOCE MAS</button>
+            </div>
+            <div class="carta">
+              <h3>Rosa</h3>
+              <p>
+                El Rosé es un vino de color rosado, fresco y ligero, con aromas
+                a fresas y cítricos. Ideal para días cálidos, es refrescante y
+                de acidez equilibrada. Perfecto para acompañar ensaladas,
+                mariscos y como aperitivo.
+              </p>
+              <button>CONOCE MAS</button>
+            </div>
+            <div class="carta">
+              <h3>Souvignon</h3>
+              <p>
+                El Sauvignon Blanc es un vino blanco fresco y vibrante, con
+                aromas herbáceos y frutales, como lima y maracuyá. De acidez
+                viva y final limpio, es excelente para maridar con mariscos,
+                pescados y ensaladas.
+              </p>
+              <button>CONOCE MAS</button>
+            </div>
+            <div class="carta">
+              <h3>Syrah</h3>
+              <p>
+                El Syrah es un vino tinto rico y complejo, con aromas a frutas
+                oscuras y pimienta negra. Originario de Francia, se destaca por
+                su textura sedosa y equilibrio perfecto. Marida excelentemente
+                con cordero, guisos y carnes a la parrilla.
+              </p>
+              <button>CONOCE MAS</button>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer class="pie-de-pagina" id="footer">
+      <div class="footerContenedor">
+        <div class="footerNav">
+          <ul>
+            <li><a href="{{ url_for('home') }}">Home</a></li>
+            <li><a href="#about">Sobre Nosotros</a></li>
+            <li><a href="#history">Historia</a></li>
+            <li><a href="#nuestrosVinos">Vinos</a></li>
+            <li><a href="{{ url_for('formulario') }}">Contacto</a></li>
+          </ul>
+        </div>
+        <div class="IconosRedes">
+          <a href=""><i class="fa-brands fa-facebook"></i></a>
+          <a href=""><i class="fa-brands fa-instagram"></i></a>
+          <a href=""><i class="fa-brands fa-twitter"></i></a>
+        </div>
+        <div class="legal">
+          <p>
+            " © 2024 CaCWines, todos los derechos reservados. "
+            <span class="invisible-space"></span>
+            <a href=""> Políticas de privacidad </a>
+            <span class="invisible-space"></span>
+            <a href=""> Términos y condiciones </a>
+          </p>
+        </div>
+      </div>
+    </footer>
+    <!--linkeo de js-->
+    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+  </body>
+</html>
